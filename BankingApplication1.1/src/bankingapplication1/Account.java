@@ -6,7 +6,7 @@ package bankingapplication1;
 
 /**
  *
- * @author user
+ * @author Student
  */
 public interface Account {
     public void deposit(double amount);

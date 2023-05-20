@@ -6,46 +6,46 @@ package bankingapplication1;
 
 /**
  *
- * @author user
+ * @author Student
  */
-public class SavingsAccount implements Account {
-
+public class SavingsAccount implements Account{
     private int accountNumber;
     private String accountName;
     private double balance;
-    private String accountType = "SavingsAccount";
+    private final String accountType = "SavingsAccount";
 
-    public SavingsAccount(int accountNumber, String accountName, double balance) {
+    public SavingsAccount(int accountNumber, String accountName, double balance){
         this.accountNumber = accountNumber;
         this.accountName = accountName;
         this.balance = balance;
     }
 
-    public int getAccountNumber() {
+    @Override
+    public int getAccountNumber(){
         return this.accountNumber;
     }
 
-    public String getAccountName() {
+    public String getAccountName(){
         return this.accountName;
     }
 
     @Override
-    public void deposit(double amount) {
+    public void deposit(double amount){
         this.balance = this.balance + amount;
     }
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw(double amount){
         this.balance = this.balance - amount;
     }
 
     @Override
-    public double getBalance() {
+    public double getBalance(){
         return this.balance;
     }
 
     @Override
-    public String getAccountType() {
+    public String getAccountType(){
         return this.accountType;
     }
 

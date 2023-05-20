@@ -56,7 +56,7 @@ public class BankingApplication1 {
                         account = new SavingsAccount(accountNumber, accountName, balance);
                         bank.openAccount(account);
                     } else if (accountType.equals("CurrentAccount")) {
-                        account = new CurrentAccount(accountNumber, accountName, balance, minimum);
+                        account = new CurrentAccount(accountNumber, accountName, balance);
                         bank.openAccount(account);
                     }
                     break;

@@ -46,13 +46,14 @@ public class Bank {
 
     public void openAccount(Account account) {
         Connection connection = BankingConnection.connect();
-        String sql = "INSERT INTO account (accNumber,accName,accBalance) VALUES(?,?,?)";
+        String sql = "INSERT INTO account (accNumber,accName,accBalance,accType) VALUES(?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, account.getAccountNumber());
             preparedStatement.setString(2, account.getAccountName());
             preparedStatement.setDouble(3, account.getBalance());
+            preparedStatement.setString(4, account.getAccountName());
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -125,7 +126,7 @@ public class Bank {
             if (accountType.equals("SavingsAccount")) {
                 account = new SavingsAccount(accountNumber, accountName, balance);
             } else if (accountType.equals("CurrentAccount")) {
-                account = new CurrentAccount(accountNumber, accountName, balance, minimum);
+                account = new CurrentAccount(accountNumber, accountName, balance);
             }
 
         } catch (SQLException ex) {
